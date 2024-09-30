@@ -5,9 +5,9 @@
   "main": "todo-app.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DurandA/todo-backend-node-koa.git"
+    "url": "git+https://github.com/darmangerd/advanced-software-engineering.git"
   },
-  "author": "Arnaud Durand",
+  "author": "Aria Darmanger",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DurandA/todo-backend-node-koa/issues"
