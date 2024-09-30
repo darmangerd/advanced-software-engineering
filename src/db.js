@@ -1,4 +1,3 @@
-// manage database connection
 const mysql = require('mysql2/promise');
 
 const dbConfig = {

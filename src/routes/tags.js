@@ -11,7 +11,6 @@ const {
 
 const router = new Router();
 
-// Tags routes
 router.get('/tags/', listTags);                    // List all tags
 router.post('/tags/', createTag);                  // Create a new tag
 router.del('/tags/', clearTags);                   // Clear all tags

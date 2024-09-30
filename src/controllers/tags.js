@@ -1,4 +1,4 @@
-const tagService = require('../services/tagService');
+const tagService = require('../models/tagModel');
 
 // List all tags with their associated todos
 async function listTags(ctx) {
@@ -32,9 +32,9 @@ async function listTags(ctx) {
     ctx.status = 200;
     ctx.body = tags;
   } catch (error) {
-    console.error('Erreur lors de la récupération des tags:', error);
+    console.error('Error while retrieving tags:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -58,9 +58,9 @@ async function createTag(ctx) {
     ctx.status = 201;
     ctx.body = newTag;
   } catch (error) {
-    console.error('Erreur lors de la création du tag:', error);
+    console.error('Error while creating the tag:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -70,9 +70,9 @@ async function clearTags(ctx) {
     await tagService.clearAllTags();
     ctx.status = 204; // No Content
   } catch (error) {
-    console.error('Erreur lors de la suppression des tags:', error);
+    console.error('Error while deleting tags:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -109,9 +109,9 @@ async function getTagById(ctx) {
     ctx.status = 200;
     ctx.body = tag;
   } catch (error) {
-    console.error('Erreur lors de la récupération du tag:', error);
+    console.error('Error while retrieving the tag:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -136,9 +136,9 @@ async function updateTagById(ctx) {
     ctx.status = 200;
     ctx.body = updatedTag;
   } catch (error) {
-    console.error('Erreur lors de la mise à jour du tag:', error);
+    console.error('Error while updating the tag:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -154,9 +154,9 @@ async function deleteTagById(ctx) {
 
     ctx.status = 204; // No Content
   } catch (error) {
-    console.error('Erreur lors de la suppression du tag:', error);
+    console.error('Error while deleting the tag:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -177,9 +177,9 @@ async function getTodosByTagId(ctx) {
     ctx.status = 200;
     ctx.body = todoList;
   } catch (error) {
-    console.error('Erreur lors de la récupération des todos pour le tag:', error);
+    console.error('Error while retrieving todos for the tag:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 

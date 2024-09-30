@@ -1,4 +1,4 @@
-const todoService = require('../services/todoService');
+const todoService = require('../models/todoModel');
 
 // List all todos with their tags
 async function listTodos(ctx) {
@@ -32,9 +32,9 @@ async function listTodos(ctx) {
     ctx.status = 200;
     ctx.body = todos;
   } catch (error) {
-    console.error('Erreur lors de la récupération des todos:', error);
+    console.error('Error while retrieving todos:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -69,9 +69,9 @@ async function addTodo(ctx) {
     ctx.status = 201;
     ctx.body = newTodo;
   } catch (error) {
-    console.error('Erreur lors de la création du todo:', error);
+    console.error('Error while creating the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -107,9 +107,9 @@ async function getTodoById(ctx) {
     ctx.status = 200;
     ctx.body = todo;
   } catch (error) {
-    console.error('Erreur lors de la récupération du todo:', error);
+    console.error('Error while retrieving the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -142,9 +142,9 @@ async function updateTodoById(ctx) {
     ctx.status = 200;
     ctx.body = updatedTodo;
   } catch (error) {
-    console.error('Erreur lors de la mise à jour du todo:', error);
+    console.error('Error while updating the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -160,9 +160,9 @@ async function deleteTodoById(ctx) {
 
     ctx.status = 204;
   } catch (error) {
-    console.error('Erreur lors de la suppression du todo:', error);
+    console.error('Error while deleting the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -172,9 +172,9 @@ async function clearTodos(ctx) {
     await todoService.clearAllTodos();
     ctx.status = 204;
   } catch (error) {
-    console.error('Erreur lors de la suppression des todos:', error);
+    console.error('Error while deleting all todos:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -193,9 +193,9 @@ async function getTagsForTodoId(ctx) {
     ctx.status = 200;
     ctx.body = tagList;
   } catch (error) {
-    console.error('Erreur lors de la récupération des tags du todo:', error);
+    console.error('Error while retrieving tags for the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -215,9 +215,9 @@ async function setTagForTodoId(ctx) {
     ctx.status = 200;
     ctx.body = tag;
   } catch (error) {
-    console.error('Erreur lors de l\'association du tag au todo:', error);
+    console.error('Error while associating the tag with the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -229,9 +229,9 @@ async function clearTagsFromTodoId(ctx) {
     await todoService.clearTagsForTodoId(todoId);
     ctx.status = 204;
   } catch (error) {
-    console.error('Erreur lors de la suppression des tags du todo:', error);
+    console.error('Error while deleting tags from the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
@@ -248,9 +248,9 @@ async function removeTagFromTodoById(ctx) {
 
     ctx.status = 204;
   } catch (error) {
-    console.error('Erreur lors de la suppression du tag associé au todo:', error);
+    console.error('Error while deleting the associated tag from the todo:', error);
     ctx.status = 500;
-    ctx.body = 'Erreur de connexion à la base de données';
+    ctx.body = 'Database connection error';
   }
 }
 
