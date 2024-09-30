@@ -1,0 +1,28 @@
+version: '3.8'  
+services:
+  app:
+    build: .  
+    ports:
+      - "8080:8080"  
+    depends_on:
+      db:
+        condition: service_healthy # Wait for the db service to be healthy before starting the app service
+    environment:
+      - DATABASE_HOST=db  
+
+  db:
+    image: mysql:latest  
+    environment:
+      MYSQL_ROOT_PASSWORD: pass123
+      MYSQL_DATABASE: tb_todo
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init_db.sql:/docker-entrypoint-initdb.d/init_db.sql 
+    healthcheck:
+          test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+          interval: 10s
+          timeout: 5s
+          retries: 5
